@@ -1,0 +1,177 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.0",
+    "originator": "originatorid",
+    "id": "@{variables('varMessageID')}",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "id": "ac_HeaderColumns",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "url": "@{variables('varSubmitterProfilePictureUrl')}",
+                            "style": "Person",
+                            "width": "32px",
+                            "height": "32px"
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "@{variables('varSubmitter')}'s Employee Recognition is Currently on Hold by @{variables('varResponder')}!",
+                            "id": "ac_title card",
+                            "horizontalAlignment": "Left",
+                            "maxLines": 3,
+                            "wrap": true,
+                            "size": "Medium",
+                            "weight": "Bolder",
+                            "color": "Warning"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "@{variables('varMessage')}",
+                    "wrap": true,
+                    "id": "pr_text"
+                },
+                {
+                    "type": "Input.Text",
+                    "id": "pr_message",
+                    "isMultiline": true,
+                    "value": "@{variables('varMessage')}",
+                    "isVisible": false
+                },
+                {
+                    "type": "Container",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Comments: @{variables('varComments')}",
+                            "wrap": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Http",
+                    "title": "Approve",
+                    "style": "positive",
+                    "url": "",
+                    "method": "POST",
+                    "body": "{\"message\":\"@{variables('varMessage')}\",\"outcome\":\"offhold\",\"submittername\":\"@{variables('varSubmitter')}\",\"submitterurl\":\"@{variables('varSubmitterProfilePictureUrl')}\",\"messageid\":\"@{variables('varMessageID')}\",\"id\":\"@{variables('varID')}\"}",
+                    "id": "pr_approve",
+                    "headers": [
+                        {
+                            "name": "Authorization",
+                            "value": ""
+                        },
+                        {
+                            "name": "Content-type",
+                            "value": "application/json"
+                        }
+                    ]
+                },
+                {
+                    "type": "Action.ToggleVisibility",
+                    "title": "Edit",
+                    "id": "pr_edit",
+                    "targetElements": [
+                        {
+                            "elementId": "pr_text",
+                            "isVisible": false
+                        },
+                        {
+                            "elementId": "pr_message",
+                            "isVisible": true
+                        },
+                        {
+                            "elementId": "pr_actions",
+                            "isVisible": false
+                        },
+                        {
+                            "elementId": "ac_editactions",
+                            "isVisible": true
+                        }
+                    ]
+                }
+            ],
+            "id": "pr_actions"
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ActionSet",
+                    "horizontalAlignment": "Left",
+                    "actions": [
+                        {
+                            "type": "Action.Http",
+                            "title": "Submit",
+                            "id": "ac_submit",
+                            "method": "POST",
+                            "url": "",
+                            "body": "{\"message\":\"{{pr_message.value}}\",\"outcome\":\"offhold\",\"submittername\":\"@{variables('varSubmitter')}\",\"submitterurl\":\"@{variables('varSubmitterProfilePictureUrl')}\",\"messageid\":\"@{variables('varMessageID')}\",\"id\":\"@{variables('varID')}\"}",
+                            "headers": [
+                                {
+                                    "name": "Authorization",
+                                    "value": ""
+                                },
+                                {
+                                    "name": "Content-type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "style": "positive"
+                        },
+                        {
+                            "type": "Action.ToggleVisibility",
+                            "title": "Cancel",
+                            "id": "ac_cancel",
+                            "targetElements": [
+                                {
+                                    "elementId": "pr_text",
+                                    "isVisible": true
+                                },
+                                {
+                                    "elementId": "pr_message",
+                                    "isVisible": false
+                                },
+                                {
+                                    "elementId": "pr_actions",
+                                    "isVisible": true
+                                },
+                                {
+                                    "elementId": "ac_editactions",
+                                    "isVisible": false
+                                }
+                            ]
+                        }
+                    ],
+                    "id": "ac_editactions",
+                    "isVisible": false
+                }
+            ],
+            "id": "ac_action"
+        }
+    ]
+}

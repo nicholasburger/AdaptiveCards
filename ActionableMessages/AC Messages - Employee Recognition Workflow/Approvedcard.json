@@ -1,0 +1,66 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.0",
+    "originator": "originatorid",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "horizontalAlignment": "Center",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "@{variables('varSubmitterProfilePictureUrl')}",
+                                    "size": "Small",
+                                    "style": "Person",
+                                    "width": "32px",
+                                    "height": "32px"
+                                }
+                            ],
+                            "spacing": "None",
+                            "horizontalAlignment": "Left",
+                            "verticalContentAlignment": "Top"
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{variables('varSubmitter')}'s Request has been Approved!",
+                                    "size": "Large",
+                                    "color": "Accent",
+                                    "isSubtle": true,
+                                    "spacing": "Small",
+                                    "horizontalAlignment": "Left",
+                                    "maxLines": 1,
+                                    "fontType": "Default",
+                                    "weight": "Bolder"
+                                }
+                            ],
+                            "spacing": "Small"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "@{variables('varMessage')}",
+                    "wrap": true,
+                    "id": "pr_message"
+                }
+            ]
+        }
+    ]
+}

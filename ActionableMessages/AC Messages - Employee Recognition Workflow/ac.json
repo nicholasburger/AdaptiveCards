@@ -1,0 +1,56 @@
+{
+    "organizationConfigs": {
+        "ConnectorsEnabled": true,
+        "ConnectorsActionableMessagesEnabled": true,
+        "SmtpActionableMessagesEnabled": true
+    },
+    "clientTimeouts": {
+        "default": {
+            "AutoInvokedActionTimeoutInMsec": 6000,
+            "HttpActionTimeoutInMsec": 15000,
+            "SnackBarTimeoutInMsec": 8000
+        }
+    },
+    "clientTimeoutsACv2": {
+        "default": {
+            "AutoInvokedActionTimeoutInMsec": 10000,
+            "HttpActionTimeoutInMsec": 20000,
+            "SnackBarTimeoutInMsec": 8000
+        }
+    },
+    "hostCapabilities": {
+        "AADAuthentication": "*"
+    },
+    "themeMappingsWebview": {
+        "connectors": {
+            "infobar-generic": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/infobar/infobar-generic.json",
+            "cseo": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/cseo/cseo.json",
+            "myanalytics": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/myanalytics/myanalytics.json",
+            "reply_at_mentions-word": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/ram/reply_at_mentions-word.json",
+            "surveymonkey": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/surveymonkey/surveymonkey.json",
+            "cortana": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/cortana/cortana.json",
+            "reply_at_mentions-excel": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/ram/reply_at_mentions-excel.json",
+            "unifiedgroups": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/unifiedgroups/unifiedgroups.json",
+            "reply_at_mentions-powerpoint": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/ram/reply_at_mentions-powerpoint.json",
+            "msteams": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/msteams/msteams.json",
+            "yammer": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/yammer/yammer.json",
+            "compact": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/compact/compact.json",
+            "officeforms": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/officeforms/officeforms.json"
+        }
+    },
+    "themeMappings": {
+        "connectors": null
+    },
+    "themeMappingsDarkModeWebview": {
+        "connectors": {
+            "compact": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/compact/compact.json",
+            "yammer": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/yammer/yammer-dark.json",
+            "myanalytics": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/myanalytics/myanalytics-dark.json",
+            "cseo": "https://res.cdn.office.net/actionablemessages/worcester/connectors/1.0.397.0/actions/themes/outlook_webview/cseo/cseo-dark.json"
+        }
+    },
+    "themeMappingsDarkMode": {
+        "connectors": null
+    },
+    "providerConfigs": []
+}

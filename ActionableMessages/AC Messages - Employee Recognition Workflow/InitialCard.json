@@ -1,0 +1,109 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.0",
+    "originator": "originatorid",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "horizontalAlignment": "Center",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "url": "@{variables('varSubmitterProfilePictureUrl')}",
+                                    "style": "Person",
+                                    "size": "Medium",
+                                    "height": "32px",
+                                    "width": "32px"
+                                }
+                            ],
+                            "spacing": "None",
+                            "horizontalAlignment": "Left",
+                            "verticalContentAlignment": "Top"
+                        },
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "@{variables('varSubmitter')} submitted a new recognition!",
+                                    "size": "Large",
+                                    "color": "Accent",
+                                    "isSubtle": true,
+                                    "spacing": "Small",
+                                    "horizontalAlignment": "Left",
+                                    "maxLines": 1,
+                                    "fontType": "Default",
+                                    "weight": "Bolder"
+                                }
+                            ],
+                            "spacing": "Small"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "@{variables('varMessage')}",
+                    "wrap": true,
+                    "id": "pr_message"
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "Please wait for the message to update.  If it does not please select this button",
+            "wrap": true
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Http",
+                    "title": "Update",
+                    "method": "POST",
+                    "body": "{\"message\":\"@{variables('varMessage')}\",\"outcome\":\"autoinvoke\",\"submittername\":\"@{variables('varSubmitter')}\",\"submitterurl\":\"@{variables('varSubmitterProfilePictureUrl')}\",\"id\":\"@{variables('varID')}\"}}",
+                    "url": "",
+                    "headers": [
+                        {
+                            "name": "Authorization",
+                            "value": ""
+                        },
+                        {
+                            "name": "Content-type",
+                            "value": "application/json"
+                        }
+                    ],
+                    "style": "positive"
+                }
+            ]
+        }
+    ],
+    "autoInvokeAction": {
+        "method": "POST",
+        "body": "{\"message\":\"@{variables('varMessage')}\",\"outcome\":\"autoinvoke\",\"submittername\":\"@{variables('varSubmitter')}\",\"submitterurl\":\"@{variables('varSubmitterProfilePictureUrl')}\",\"id\":\"@{variables('varID')}\"}}",
+        "url": "",
+        "headers": [
+            {
+                "name": "Authorization",
+                "value": ""
+            },
+            {
+                "name": "Content-type",
+                "value": "application/json"
+            }
+        ]
+    }
+}
